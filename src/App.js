@@ -1,30 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import Data from "./meusComponentes/data";
 
 function App() {
-  return (
+  return ( //Todo componente deve iniciar em letra maiscula -> <Data/>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          {
-            'Data/hora em que a pagina foi carregada: ' 
-            + new Date().toLocaleString() +
-            + new Date().toLocaleTimeString()
-          }
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Data texto="Data e Hora atuais: "/>
+      
     </div>
   );
 }
