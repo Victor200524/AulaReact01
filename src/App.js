@@ -4,7 +4,8 @@ function App() {
   return ( //Todo componente deve iniciar em letra maiscula -> <Data/>
     <div className="App">
       <Data texto="Data e Hora atuais: "/>
-      
+      <Data texto="Data e Hora em Londres: "/>
+      <Data texto="Data e Hora em Nova york: "/>
     </div>
   );
 }

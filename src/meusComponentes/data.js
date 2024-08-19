@@ -5,22 +5,30 @@ export default class Data extends Component{
     constructor(props){
         super(); // Executa o costructor do pai
         this.props = props;
-        this.dataAtual = new Date().toLocaleString();
+        this.state = {dataAtual : new Date().toLocaleString()} // A dataAtual, é o estado do componente
     }
-
+    
     //Fase de Montagem
     componentDidMount(){ 
         console.log("O componente foi montado.");
-        this.dataAtual = new Data().toLocaleString();
+        // Não é permitido atualizar o estado com componente de forma direta this.state = ....
+        this.setState({
+            dataAtual : new Date().toLocaleString()
+        });
     }
     componentDidUpdate(){
         console.log("O componenten foi atualizado!");
+        setTimeout(()=>{ 
+            this.setState({
+            dataAtual : new Date().toLocaleString()
+        });
+        },1000);
     }
     //Sobrestrita de método
 
     render(){ //Retorna a aparencia de um componente, onde é ecessario sempre usar, pois ele vai retornar no fial uma aparecia
         return (
-            <h1>{ this.props.texto || "" }{this.dataAtual}</h1> // Dentro de chaves, seria o javascript -> {} // Coloca o | para se acaso não excutar o codigo do js
+            <h1>{ this.props.texto || "" }{this.state.dataAtual}</h1> // Dentro de chaves, seria o javascript -> {} // Coloca o || para se acaso não excutar o codigo do js
         )
     }
 }
