@@ -13,8 +13,8 @@ export default class Data extends Component{
         let timeZoneFromDB = parseInt(timeZone);
         let diferencaTempo = timeZoneFromDB * 60 + dataAtual.getTimezoneOffset();
         let milisegundos = parseInt(dataAtual.getTime()+ (diferencaTempo *60 * 1000));
+        const data = new Date(milisegundos);
         return data;
-
     }
 
     //Fase de Montagem
@@ -29,9 +29,9 @@ export default class Data extends Component{
         console.log("O componenten foi atualizado!");
         setTimeout(()=>{ 
             this.setState({
-            dataAtual : new Date().toLocaleString()
-        });
-        },1000);
+            dataAtual : this.pegaDateDe(this.props.timeZone).toLocaleString()
+        })
+        },1000)
     }
     //Sobrestrita de método
 
