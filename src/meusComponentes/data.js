@@ -8,6 +8,15 @@ export default class Data extends Component{
         this.state = {dataAtual : new Date().toLocaleString()} // A dataAtual, é o estado do componente
     }
     
+    pegaDateDe(timeZone){
+        const dataAtual = new Date();
+        let timeZoneFromDB = parseInt(timeZone);
+        let diferencaTempo = timeZoneFromDB * 60 + dataAtual.getTimezoneOffset();
+        let milisegundos = parseInt(dataAtual.getTime()+ (diferencaTempo *60 * 1000));
+        return data;
+
+    }
+
     //Fase de Montagem
     componentDidMount(){ 
         console.log("O componente foi montado.");
