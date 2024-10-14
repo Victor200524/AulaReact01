@@ -24,7 +24,7 @@ export default function DataV2(props){
 
     //exemplo de didMount
     useEffect(()=>{
-        setDataAtual(new Date().toLocaleDateString()); // ATUALIZA O ESTADO DA DATA ATUAL
+        setDataAtual(pegaDateDe(props.timeZone).toLocaleDateString()); // ATUALIZA O ESTADO DA DATA ATUAL
         return ()=>{}// RETORNA UMA FUNÇÃO -> willUnmont
     },[])
 
